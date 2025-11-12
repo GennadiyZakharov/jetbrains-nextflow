@@ -19,10 +19,23 @@
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <!-- Need Groovy plugin for highlighter -->
+    <depends>org.intellij.groovy</depends>
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <!-- Register Nextflow file type and associate with extensions and specific filename -->
+        <fileType name="Nextflow" language="Nextflow" implementationClass="com.intellij.plugins.nextflow.lang.NextflowFileType" extensions="nf" fileNames="nextflow.config"/>
 
+        <!-- Register syntax highlighter using Groovy's highlighter -->
+        <lang.syntaxHighlighterFactory language="Nextflow" implementationClass="com.intellij.plugins.nextflow.lang.highlight.NextflowSyntaxHighlighterFactory"/>
     </extensions>
+
+    <!-- Register actions (File -> New) -->
+    <actions>
+        <action id="Nextflow.NewFile" class="com.intellij.plugins.nextflow.actions.NewNextflowFileAction" text="Nextflow Workflow" description="Create a new Nextflow (.nf) workflow file">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFromTemplate"/>
+        </action>
+    </actions>
 </idea-plugin>

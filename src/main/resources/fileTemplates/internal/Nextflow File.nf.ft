@@ -1,0 +1,26 @@
+#!/usr/bin/env nextflow
+
+/*
+ * Nextflow workflow template
+ * More: https://www.nextflow.io/docs/latest/
+ */
+
+nextflow.enable.dsl=2
+
+// Example process
+process HELLO {
+    input:
+    val x
+
+    output:
+    stdout result
+
+    """
+    echo "Hello, ${x}!"
+    """
+}
+
+// Example workflow
+workflow {
+    HELLO('world')
+}
