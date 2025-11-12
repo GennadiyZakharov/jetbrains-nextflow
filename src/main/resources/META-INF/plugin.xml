@@ -30,6 +30,9 @@
 
         <!-- Register syntax highlighter using Groovy's highlighter -->
         <lang.syntaxHighlighterFactory language="Nextflow" implementationClass="com.intellij.plugins.nextflow.lang.highlight.NextflowSyntaxHighlighterFactory"/>
+
+        <!-- Basic completion contributor for Nextflow keywords -->
+        <completion.contributor language="Nextflow" implementationClass="com.intellij.plugins.nextflow.completion.NextflowCompletionContributor"/>
     </extensions>
 
     <!-- Register actions (File -> New) -->
