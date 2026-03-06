@@ -39,6 +39,13 @@ intellijPlatform {
     }
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
+}
+
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
